@@ -1,0 +1,49 @@
+# This is a basic workflow to help you get started with Actions
+
+name: ReadyAPI Automation
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+  jobs:
+  Run-Tests:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    steps:
+      # checkout branch
+      - uses: actions/checkout@v1
+
+     # - name: create downloads folder
+       # run: |
+        # mkdir -p ~/Downloads
+
+
+      - name: Download ReadyAPI installer
+        run: curl https://dl.eviware.com/ready-api/3.40.1.0/ReadyAPI-x64-3.59.0.sh -o ~/ReadyAPI-x64-3.59.0.sh
+
+      - name: List directory contents recursively on Ubuntu
+        run: |
+         ls -la ~/
+
+        # run: echo ReadyAPI Downloaded Successfully
+
+      - name: Make installer executable
+        run: chmod +x ~/ReadyAPI-x64-3.54.0.sh
+
+      - name: Check if shell script is executable
+        run: ./ReadyAPI-x64-3.54.0.sh -q
+
+        
+      - name: Execute ReadyAPI
+        run: cmd /c "testrunner.bat -r -a -j -f${WORKSPACE} "-RJUnit-Style HTML Report" -FXML -accessKey "03c35bd2-9362-44ea-b378-c4e30dd09914" "-EDefault environment" ${{ env.RAPI_PROJECT_PATH }}"
+
+
+        
