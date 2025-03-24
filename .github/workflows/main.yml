@@ -34,7 +34,7 @@ jobs:
          ls -la ~/Downloads
 
       - name: Install ReadyAPI
-        run: ./ReadyAPI-x64-.sh -c
+        run: ~/Downloads/ReadyAPI-x64-.sh -c
       
 
 
