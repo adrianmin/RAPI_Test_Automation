@@ -34,7 +34,14 @@ jobs:
          ls -la ~/
 
         # run: echo ReadyAPI Downloaded Successfully
-
+        
+      - name: Check if script exists
+        run: |
+          if [ -f "ReadyAPI-x64-3.59.0.sh" ]; then
+            echo "ReadyAPI-x64-3.59.0.sh exists"
+          else
+            echo "ReadyAPI-x64-3.59.0.sh does not exist"
+      
       - name: Make installer executable
         run: chmod +x ~/ReadyAPI-x64-3.54.0.sh
 
