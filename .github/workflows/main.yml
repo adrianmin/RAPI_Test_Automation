@@ -33,6 +33,9 @@ jobs:
         run: |
          ls -la ~/Downloads
 
+      - name: Make installer executable
+        run: chmod +x ~/Downloads/ReadyAPI-x64-3.59.0.sh
+
       - name: Install ReadyAPI
         run: ~/Downloads/ReadyAPI-x64-.sh -c
       
