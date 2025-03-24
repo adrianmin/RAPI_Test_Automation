@@ -21,9 +21,9 @@ jobs:
       # checkout branch
       - uses: actions/checkout@v1
 
-     # - name: create downloads folder
-       # run: |
-        # mkdir -p ~/Downloads
+      - name: create downloads folder
+        run: |
+         mkdir -p ~/Downloads
 
 
       - name: Download ReadyAPI installer
