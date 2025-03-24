@@ -27,7 +27,7 @@ jobs:
 
 
       - name: Download ReadyAPI installer
-        run: curl https://dl.eviware.com/ready-api/3.40.1.0/ReadyAPI-x64-3.59.0.sh -o ~/ReadyAPI-x64-3.59.0.sh
+        run: curl https://dl.eviware.com/ready-api/3.59.0/ReadyAPI-x64-3.59.0.sh -o ~/ReadyAPI-x64-3.59.0.sh
 
       - name: List directory contents recursively on Ubuntu
         run: |
