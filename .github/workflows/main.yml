@@ -31,7 +31,7 @@ jobs:
 
       - name: List directory contents recursively on Ubuntu
         run: |
-         ls -la ~/Downloads
+         ls -la ~/
 
       - name: Make installer executable
         run: chmod +x ~/Downloads/ReadyAPI-x64-3.59.0.sh
