@@ -41,7 +41,7 @@ jobs:
       
       - name: List directory contents recursively on Ubuntu
         run: |
-         ls -la ~/Downloads
+         ls -la ~/
          
       - name: execute the ReadyAPI project stored in repository
         run: cmd /c "testrunner.bat -r -a -j -f${WORKSPACE} "-RJUnit-Style HTML Report" -FXML -accessKey "03c35bd2-9362-44ea-b378-c4e30dd09914" "-EDefault environment" ${{ env.RAPI_PROJECT_PATH }}"
