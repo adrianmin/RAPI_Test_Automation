@@ -14,7 +14,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  Run-Tests:
+  Install-and-Run-ReadyAPI:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     steps:
@@ -24,22 +24,27 @@ jobs:
       - name: create downloads folder
         run: |
          mkdir -p ~/Downloads
+      
       - name: Download ReadyAPI installer
         run: curl https://dl.eviware.com/ready-api/3.59.0/ReadyAPI-x64-3.59.0.sh -o ~/Downloads/ReadyAPI-x64-3.59.0.sh
 
+      # View the contents of the new Downloads folder and the ReadyAPI installer
       - name: List directory contents recursively on Ubuntu
         run: |
-         ls -la ~/
+         ls -la ~/Downloads
+
       - name: Make installer executable
         run: chmod +x ~/Downloads/ReadyAPI-x64-3.59.0.sh
-
+  
       - name: Install ReadyAPI
         run: ~/Downloads/ReadyAPI-x64-3.59.0.sh -q
-      
-      - name: List directory contents recursively on Ubuntu
+
+      # View the contents of the Smartbear installation and the location of the testrunner script
+      - name: List directory contents of Smartbear installation
         run: |
          ls -la ~/SmartBear/ReadyAPI-3.59.0/bin
-         
+   
+      # execute ReadyAPI project by running testrunner script. The ./ references the ReadyAPI project stored in the git repo.  
       - name: execute the ReadyAPI project stored in repository
         run: | 
           ~/SmartBear/ReadyAPI-3.59.0/bin/testrunner.sh "-RJUnit-Style HTML Report" -FXML -accessKey "03c35bd2-9362-44ea-b378-c4e30dd09914" "-EDefault environment" ./
